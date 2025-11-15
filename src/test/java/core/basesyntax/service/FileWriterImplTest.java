@@ -1,17 +1,18 @@
 package core.basesyntax.service;
 
 import core.basesyntax.service.impl.FileWriterImpl;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class FileWriterImplTest {
-    private FileWriter fileWriter;
     private static final String TEST_FILE = "src/test/resources/WriteTest.csv";
     private static final String REPORT = "fruit,quantity" + System.lineSeparator() + "banana,10";
+    private FileWriter fileWriter;
 
     @BeforeEach
     void setUp() {

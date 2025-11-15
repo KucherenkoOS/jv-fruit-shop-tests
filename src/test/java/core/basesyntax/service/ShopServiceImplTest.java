@@ -5,15 +5,14 @@ import core.basesyntax.model.Operation;
 import core.basesyntax.service.ShopService;
 import core.basesyntax.strategy.OperationHandler;
 import core.basesyntax.strategy.OperationStrategy;
-import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ShopServiceImplTest {
 
@@ -81,20 +80,30 @@ class ShopServiceImplTest {
 
         shopService.process(List.of(tx));
 
-        assertEquals(1, handler.calls);
-        assertEquals(tx, handler.lastTransaction);
+        assertEquals(1, handler.getCalls());
+        assertEquals(tx, handler.getLastTransaction());
+
     }
 
     static class TestOperationHandler implements OperationHandler {
-        int calls = 0;
-        FruitTransaction lastTransaction;
+        private int calls = 0;
+        private FruitTransaction lastTransaction;
 
         @Override
         public void apply(FruitTransaction transaction) {
             calls++;
             lastTransaction = transaction;
         }
+
+        public int getCalls() {
+            return calls;
+        }
+
+        public FruitTransaction getLastTransaction() {
+            return lastTransaction;
+        }
     }
+
 
     static class TestStrategy implements OperationStrategy {
         private final Map<Operation, OperationHandler> handlers =
