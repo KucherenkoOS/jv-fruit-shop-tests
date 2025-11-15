@@ -1,5 +1,8 @@
 package core.basesyntax.service.impl;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import core.basesyntax.model.FruitTransaction;
 import core.basesyntax.model.Operation;
 import core.basesyntax.service.ShopService;
@@ -10,9 +13,6 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ShopServiceImplTest {
 
@@ -103,7 +103,6 @@ class ShopServiceImplTest {
             return lastTransaction;
         }
     }
-
 
     static class TestStrategy implements OperationStrategy {
         private final Map<Operation, OperationHandler> handlers =
