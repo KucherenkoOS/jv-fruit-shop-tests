@@ -17,6 +17,7 @@ class SupplyOperationTest {
     void setUp() {
         supplyOperation = new SupplyOperation();
 
+        Storage.setFruitQuantity("mango", 0);
         Storage.setFruitQuantity("banana", 0);
         Storage.setFruitQuantity("apple", 0);
     }
