@@ -10,8 +10,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class FileReaderImplTest {
-    private FileReader fileReader;
     private static final String VALID_FILE = "src/test/resources/ReadTest.csv";
+    private FileReader fileReader;
 
     @BeforeEach
     void setUp() {
